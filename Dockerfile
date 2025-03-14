@@ -1,5 +1,5 @@
 # Inherit from the base image
-FROM ubuntu_php82fpm_base_image:latest
+FROM ravikantchauhan/ubuntu22.4-php8.2-fpm
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php && \
