@@ -14,11 +14,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Log in to Docker Hub
-      run: echo "dckr_pat_Ro-dj2DQ5eKNDhx0nMnTb1-xDmk" | docker login -u "ravikantchauhan" --password-stdin
-
+    
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ravikantchauhan/laravel:latest
 
     - name: Push the Docker image to Docker Hub
-      run: docker push ravikantchauhan/laravel:latest
+      run: |
+        docker login -u ravikantchauhan -p ${{ secrets.DOH }}
+        docker push ravikantchauhan/laravel:latest
